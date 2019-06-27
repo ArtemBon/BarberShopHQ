@@ -36,6 +36,21 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	errors = {
+		:username => 'Введите имя',
+		:phone => 'Введите телефон',
+		:date_time => 'Введите дату и время'
+	}
+
+	errors.each do |key, value|
+
+		if params[key] == ''
+			@error = value
+			return erb :visit
+		end
+
+	end
+
 	Client.create :name => @username,
 				  :phone => @phone,
 				  :datestamp => @date_time,
