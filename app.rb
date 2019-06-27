@@ -92,6 +92,8 @@ post '/contacts' do
 
 	@message_contacts = 'Мы получили Ваше сообщение, обязательно Вам ответим'
 
+	@email = ''
+
 	erb :contacts
 
 end
