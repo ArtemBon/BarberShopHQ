@@ -63,3 +63,35 @@ post '/visit' do
 	erb "<h2>Спасибо, вы записались!</h2>"
 
 end
+
+get '/contacts' do
+	erb :contacts
+end
+
+post '/contacts' do
+
+	@email = params[:email]
+	@text = params[:textarea]
+
+	errors = {
+		email: 'Введите email',
+		textarea: 'Введите сообщение'
+	}
+
+	errors.each do |key, value|
+
+		if params[key] == ''
+			@error = value
+			return erb :contacts
+		end
+
+	end
+
+	Contact.create :email => @email,
+				   :message => @text
+
+	@message_contacts = 'Мы получили Ваше сообщение, обязательно Вам ответим'
+
+	erb :contacts
+
+end
