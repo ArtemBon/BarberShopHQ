@@ -6,21 +6,21 @@
   <div class="form-group">
 
     <label>Ваше ім'я</label>
-    <input type="text" name="client[name]" class="form-control" placeholder="Введіть ваше ім'я" value="">
+    <input type="text" name="client[name]" class="form-control" placeholder="Введіть ваше ім'я" value="<%= @c.name %>">
 
   </div>
 
   <div class="form-group">
 
     <label>Ваш телефон</label>
-    <input type="text" name="client[phone]" class="form-control" placeholder="Введіть ваш телефон" value="">
+    <input type="text" name="client[phone]" class="form-control" placeholder="Введіть ваш телефон" value="<%= @c.phone %>">
 
   </div>
 
   <div class="form-group">
 
     <label>Час та дата</label>
-    <input type="text" name="client[datestamp]" class="form-control" placeholder="Введіть час і дату, на яку хочете прийти"  value="">
+    <input type="text" name="client[datestamp]" class="form-control" placeholder="Введіть час і дату, на яку хочете прийти"  value="<%= @c.datestamp %>">
 
   </div>
 
