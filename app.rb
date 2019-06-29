@@ -33,32 +33,8 @@ end
 
 post '/visit' do
 
-	@username = params[:username]
-	@phone = params[:phone]
-	@date_time = params[:date_time]
-	@barber = params[:barber]
-	@color = params[:color]
-
-	errors = {
-		:username => 'Введите имя',
-		:phone => 'Введите телефон',
-		:date_time => 'Введите дату и время'
-	}
-
-	errors.each do |key, value|
-
-		if params[key] == ''
-			@error = value
-			return erb :visit
-		end
-
-	end
-
-	Client.create :name => @username,
-				  :phone => @phone,
-				  :datestamp => @date_time,
-				  :barber => @barber,
-				  :color => @color
+	c = Client.new params[:client]
+	c.save
 
 	erb "<h2>Спасибо, вы записались!</h2>"
 
